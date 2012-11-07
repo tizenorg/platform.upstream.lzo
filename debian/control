@@ -1,0 +1,31 @@
+Source: lzo2
+Section: libs
+Priority: important
+Maintainer: Karol Lewandowski <k.lewandowsk@samsung.com>
+X-Original-Maintainer: Peter Eisentraut <petere@debian.org>
+Standards-Version: 3.7.3
+Build-Depends: cdbs, debhelper (>= 6)
+Homepage: http://www.oberhumer.com/opensource/lzo/
+
+Package: liblzo2-dev
+Section: libdevel
+Priority: optional
+Architecture: any
+Depends: liblzo2-2, libc6-dev
+Replaces: liblzo-dev
+Description: data compression library (development files)
+ LZO is a portable, lossless data compression library.
+ This package contains the header files and static libraries for the
+ LZO data compression library.
+
+Package: liblzo2-2
+Section: libs
+Priority: important
+Architecture: any
+Depends: ${shlibs:Depends}
+Description: data compression library
+ LZO is a portable, lossless data compression library.
+ It offers pretty fast compression and very fast decompression.
+ Decompression requires no memory.  In addition there are slower
+ compression levels achieving a quite competitive compression ratio
+ while still decompressing at this very high speed.

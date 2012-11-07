@@ -1,0 +1,21 @@
+#!/usr/bin/make -f
+
+distribution = SLP
+
+include /usr/share/cdbs/1/rules/debhelper.mk
+include /usr/share/cdbs/1/class/autotools.mk
+
+DEB_CONFIGURE_EXTRA_FLAGS = --enable-shared --disable-libtool-lock
+DEB_DH_INSTALL_SOURCEDIR = debian/tmp
+DEB_INSTALL_CHANGELOGS_ALL = NEWS
+DEB_INSTALL_DOCS_ALL =
+
+ifneq ($(distribution),SLP)
+DEB_MAKE_CHECK_TARGET = check test
+else
+DEB_MAKE_CHECK_TARGET =
+endif
+
+common-install-impl::
+	mkdir -p $(DEB_DESTDIR)/usr/share/lzo/minilzo
+	install -D -m 644 minilzo/README.LZO minilzo/minilzo.c minilzo/minilzo.h include/lzo/lzoconf.h include/lzo/lzodefs.h $(CURDIR)/debian/tmp/usr/share/lzo/minilzo
