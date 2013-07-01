@@ -6,6 +6,7 @@ Summary:        Data compression library with very fast (de)compression
 Url:            http://www.oberhumer.com/opensource/lzo/
 Group:          System/Libraries
 Source0:        http://www.oberhumer.com/opensource/lzo/download/%{name}-%{version}.tar.gz
+Source1001: 	lzo.manifest
 BuildRequires:  zlib-devel
 Requires(post): /sbin/ldconfig
 Requires(postun): /sbin/ldconfig
@@ -41,6 +42,7 @@ This package contains development files needed for lzo.
 
 %prep
 %setup -q
+cp %{SOURCE1001} .
 
 
 %build
@@ -79,17 +81,20 @@ install -p -m 644 minilzo/minilzo.h %{buildroot}%{_includedir}/lzo
 
 
 %files
+%manifest %{name}.manifest
 %defattr(-,root,root,-)
 %doc AUTHORS COPYING THANKS NEWS
 %{_libdir}/liblzo2.so.*
 
 
 %files minilzo
+%manifest %{name}.manifest
 %defattr(-,root,root,-)
 %doc minilzo/README.LZO
 %{_libdir}/libminilzo.so.0
 
 %files devel
+%manifest %{name}.manifest
 %defattr(-,root,root,-)
 %doc doc/LZOAPI.TXT doc/LZO.FAQ doc/LZO.TXT
 %{_includedir}/lzo
