@@ -1,0 +1,9 @@
+Change-Id: I30afcc6eb1635cd47a87c23d1da0c2fcc928bc0e
+Code-Review+2: Ryan Ware <ware@linux.intel.com>
+Verified+1: Ryan Ware <ware@linux.intel.com>
+Code-Review+1: Michael Demeter <michael.demeter@intel.com>
+Submitted-by: Ryan Ware <ware@linux.intel.com>
+Submitted-at: Mon, 08 Jul 2013 09:37:29 -0700
+Reviewed-on: https://review.tizen.org/gerrit/5204
+Project: platform/upstream/lzo
+Branch: refs/heads/tizen
