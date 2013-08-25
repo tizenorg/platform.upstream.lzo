@@ -1,3 +1,0 @@
-usr/lib/*.{a,la,so}
-usr/include/
-usr/share/lzo/minilzo
