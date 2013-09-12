@@ -1,0 +1,9 @@
+Code-Review+2: Chengwei Yang <chengwei.yang@intel.com>
+Verified+1: Chengwei Yang <chengwei.yang@intel.com>
+Code-Review+1: Patrick McCarty <patrick.mccarty@linux.intel.com>
+Code-Review+1: william douglas <william.douglas@intel.com>
+Submitted-by: Chengwei Yang <chengwei.yang@intel.com>
+Submitted-at: Wed, 11 Sep 2013 19:06:45 -0700
+Reviewed-on: https://review.tizen.org/gerrit/8586
+Project: platform/upstream/lzo
+Branch: refs/heads/tizen
