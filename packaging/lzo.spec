@@ -1,12 +1,12 @@
 Name:           lzo
-Version:        2.03
-Release:        3.15
+Version:        2.08
+Release:        0
 License:        GPL-2.0+
 Summary:        Data compression library with very fast (de)compression
 Url:            http://www.oberhumer.com/opensource/lzo/
 Group:          System/Libraries
 Source0:        http://www.oberhumer.com/opensource/lzo/download/%{name}-%{version}.tar.gz
-Source1001: 	lzo.manifest
+Source1001:     lzo.manifest
 BuildRequires:  zlib-devel
 Requires(post): /sbin/ldconfig
 Requires(postun): /sbin/ldconfig
@@ -52,19 +52,18 @@ cp %{SOURCE1001} .
     --enable-shared \
     CFLAGS="`echo $CFLAGS | sed 's/-O2//g'`"
 
-make %{?_smp_mflags}
+%__make %{?_smp_mflags}
 
 # build minilzo too (bz 439979)
 gcc %{optflags} -O2 -g -fpic -Iinclude/lzo -o minilzo/minilzo.o -c minilzo/minilzo.c
-#gcc -O2 -g -fpic -Iinclude/lzo -o minilzo/minilzo.o -c minilzo/minilzo.c
 gcc -g -shared -o libminilzo.so.0 -Wl,-soname,libminilzo.so.0 minilzo/minilzo.o
 %install
 %make_install
 
 install -m 755 libminilzo.so.0 %{buildroot}%{_libdir}
-ln -s libminilzo.so.0 %{buildroot}%{_libdir}/libminilzo.so
+ln -sf libminilzo.so.0 %{buildroot}%{_libdir}/libminilzo.so
 install -p -m 644 minilzo/minilzo.h %{buildroot}%{_includedir}/lzo
-
+rm -f %{buildroot}%{_datadir}/doc/%{name}/COPYING
 
 
 %post -p /sbin/ldconfig
@@ -72,20 +71,16 @@ install -p -m 644 minilzo/minilzo.h %{buildroot}%{_includedir}/lzo
 %postun -p /sbin/ldconfig
 
 
-
 %post minilzo -p /sbin/ldconfig
 
 %postun minilzo -p /sbin/ldconfig
 
 
-
-
 %files
 %manifest %{name}.manifest
 %defattr(-,root,root,-)
-%doc AUTHORS COPYING THANKS NEWS
+%license COPYING
 %{_libdir}/liblzo2.so.*
-
 
 %files minilzo
 %manifest %{name}.manifest
@@ -96,7 +91,9 @@ install -p -m 644 minilzo/minilzo.h %{buildroot}%{_includedir}/lzo
 %files devel
 %manifest %{name}.manifest
 %defattr(-,root,root,-)
-%doc doc/LZOAPI.TXT doc/LZO.FAQ doc/LZO.TXT
+%doc %{_datadir}/doc/%{name}/AUTHORS
+%doc %{_datadir}/doc/%{name}/LZO*
+%doc %{_datadir}/doc/%{name}/NEWS
+%doc %{_datadir}/doc/%{name}/THANKS
 %{_includedir}/lzo
 %{_libdir}/lib*lzo*.so
-
