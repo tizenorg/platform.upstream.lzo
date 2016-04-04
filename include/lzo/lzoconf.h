@@ -131,9 +131,9 @@ extern "C" {
 typedef int lzo_bool;
 
 /* sanity checks */
-LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_uint) == LZO_SIZEOF_LZO_UINT)
-LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_xint) >= sizeof(lzo_uint))
-LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_xint) >= sizeof(lzo_uint32_t))
+__attribute__ ((visibility ("default"))) LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_uint) == LZO_SIZEOF_LZO_UINT)
+__attribute__ ((visibility ("default"))) LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_xint) >= sizeof(lzo_uint))
+__attribute__ ((visibility ("default"))) LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_xint) >= sizeof(lzo_uint32_t))
 
 #ifndef __LZO_MMODEL
 #define __LZO_MMODEL            /*empty*/
@@ -178,19 +178,19 @@ LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_xint) >= sizeof(lzo_uint32_t))
 #if (__LZO_UINTPTR_T_IS_POINTER)
 #error "__LZO_UINTPTR_T_IS_POINTER is unsupported"
 #endif
-LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(int) >= 4)
-LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_uint) >= 4)
+__attribute__ ((visibility ("default"))) LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(int) >= 4)
+__attribute__ ((visibility ("default"))) LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_uint) >= 4)
 /* Strange configurations where sizeof(lzo_uint) != sizeof(size_t) should
  * work but have not received much testing lately, so be strict here.
  */
-LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_uint) == sizeof(size_t))
-LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_uint) == sizeof(ptrdiff_t))
-LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_uint) == sizeof(lzo_uintptr_t))
-LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(void *)   == sizeof(lzo_uintptr_t))
-LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(char *)   == sizeof(lzo_uintptr_t))
-LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(long *)   == sizeof(lzo_uintptr_t))
-LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(void *)   == sizeof(lzo_voidp))
-LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(char *)   == sizeof(lzo_bytep))
+__attribute__ ((visibility ("default"))) LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_uint) == sizeof(size_t))
+__attribute__ ((visibility ("default"))) LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_uint) == sizeof(ptrdiff_t))
+__attribute__ ((visibility ("default"))) LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_uint) == sizeof(lzo_uintptr_t))
+__attribute__ ((visibility ("default"))) LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(void *)   == sizeof(lzo_uintptr_t))
+__attribute__ ((visibility ("default"))) LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(char *)   == sizeof(lzo_uintptr_t))
+__attribute__ ((visibility ("default"))) LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(long *)   == sizeof(lzo_uintptr_t))
+__attribute__ ((visibility ("default"))) LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(void *)   == sizeof(lzo_voidp))
+__attribute__ ((visibility ("default"))) LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(char *)   == sizeof(lzo_bytep))
 
 
 /***********************************************************************
@@ -332,35 +332,35 @@ struct lzo_callback_t
     (int)sizeof(long),(int)sizeof(lzo_uint32_t),(int)sizeof(lzo_uint),\
     (int)lzo_sizeof_dict_t,(int)sizeof(char *),(int)sizeof(lzo_voidp),\
     (int)sizeof(lzo_callback_t))
-LZO_EXTERN(int) __lzo_init_v2(unsigned,int,int,int,int,int,int,int,int,int);
+__attribute__ ((visibility ("default"))) LZO_EXTERN(int) __lzo_init_v2(unsigned,int,int,int,int,int,int,int,int,int);
 
 /* version functions (useful for shared libraries) */
-LZO_EXTERN(unsigned) lzo_version(void);
-LZO_EXTERN(const char *) lzo_version_string(void);
-LZO_EXTERN(const char *) lzo_version_date(void);
-LZO_EXTERN(const lzo_charp) _lzo_version_string(void);
-LZO_EXTERN(const lzo_charp) _lzo_version_date(void);
+__attribute__ ((visibility ("default"))) LZO_EXTERN(unsigned) lzo_version(void);
+__attribute__ ((visibility ("default"))) LZO_EXTERN(const char *) lzo_version_string(void);
+__attribute__ ((visibility ("default"))) LZO_EXTERN(const char *) lzo_version_date(void);
+__attribute__ ((visibility ("default"))) LZO_EXTERN(const lzo_charp) _lzo_version_string(void);
+__attribute__ ((visibility ("default"))) LZO_EXTERN(const lzo_charp) _lzo_version_date(void);
 
 /* string functions */
-LZO_EXTERN(int)
+__attribute__ ((visibility ("default"))) LZO_EXTERN(int)
     lzo_memcmp(const lzo_voidp a, const lzo_voidp b, lzo_uint len);
-LZO_EXTERN(lzo_voidp)
+__attribute__ ((visibility ("default"))) LZO_EXTERN(lzo_voidp)
     lzo_memcpy(lzo_voidp dst, const lzo_voidp src, lzo_uint len);
-LZO_EXTERN(lzo_voidp)
+__attribute__ ((visibility ("default"))) LZO_EXTERN(lzo_voidp)
     lzo_memmove(lzo_voidp dst, const lzo_voidp src, lzo_uint len);
-LZO_EXTERN(lzo_voidp)
+__attribute__ ((visibility ("default"))) LZO_EXTERN(lzo_voidp)
     lzo_memset(lzo_voidp buf, int c, lzo_uint len);
 
 /* checksum functions */
-LZO_EXTERN(lzo_uint32_t)
+__attribute__ ((visibility ("default"))) LZO_EXTERN(lzo_uint32_t)
     lzo_adler32(lzo_uint32_t c, const lzo_bytep buf, lzo_uint len);
-LZO_EXTERN(lzo_uint32_t)
+__attribute__ ((visibility ("default"))) LZO_EXTERN(lzo_uint32_t)
     lzo_crc32(lzo_uint32_t c, const lzo_bytep buf, lzo_uint len);
-LZO_EXTERN(const lzo_uint32_tp)
+__attribute__ ((visibility ("default"))) LZO_EXTERN(const lzo_uint32_tp)
     lzo_get_crc32_table(void);
 
 /* misc. */
-LZO_EXTERN(int) _lzo_config_check(void);
+__attribute__ ((visibility ("default"))) LZO_EXTERN(int) _lzo_config_check(void);
 typedef union {
     lzo_voidp a00; lzo_bytep a01; lzo_uint a02; lzo_xint a03; lzo_uintptr_t a04;
     void *a05; unsigned char *a06; unsigned long a07; size_t a08; ptrdiff_t a09;
@@ -370,7 +370,7 @@ typedef union {
 } lzo_align_t;
 
 /* align a char pointer on a boundary that is a multiple of 'size' */
-LZO_EXTERN(unsigned) __lzo_align_gap(const lzo_voidp p, lzo_uint size);
+__attribute__ ((visibility ("default"))) LZO_EXTERN(unsigned) __lzo_align_gap(const lzo_voidp p, lzo_uint size);
 #define LZO_PTR_ALIGN_UP(p,size) \
     ((p) + (lzo_uint) __lzo_align_gap((const lzo_voidp)(p),(lzo_uint)(size)))
 

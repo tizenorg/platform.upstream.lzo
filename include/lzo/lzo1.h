@@ -50,12 +50,12 @@ extern "C" {
 #define LZO1_MEM_DECOMPRESS     (0)
 
 
-LZO_EXTERN(int)
+__attribute__ ((visibility ("default"))) LZO_EXTERN(int)
 lzo1_compress           ( const lzo_bytep src, lzo_uint  src_len,
                                 lzo_bytep dst, lzo_uintp dst_len,
                                 lzo_voidp wrkmem );
 
-LZO_EXTERN(int)
+__attribute__ ((visibility ("default"))) LZO_EXTERN(int)
 lzo1_decompress         ( const lzo_bytep src, lzo_uint  src_len,
                                 lzo_bytep dst, lzo_uintp dst_len,
                                 lzo_voidp wrkmem /* NOT USED */ );
@@ -67,7 +67,7 @@ lzo1_decompress         ( const lzo_bytep src, lzo_uint  src_len,
 
 #define LZO1_99_MEM_COMPRESS    ((lzo_uint32_t) (65536L * lzo_sizeof_dict_t))
 
-LZO_EXTERN(int)
+__attribute__ ((visibility ("default"))) LZO_EXTERN(int)
 lzo1_99_compress        ( const lzo_bytep src, lzo_uint  src_len,
                                 lzo_bytep dst, lzo_uintp dst_len,
                                 lzo_voidp wrkmem );

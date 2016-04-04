@@ -46,6 +46,9 @@ cp %{SOURCE1001} .
 
 
 %build
+export CFLAGS+=" -fvisibility=hidden"
+  export CXXFLAGS+=" -fvisibility=hidden"
+  
 
 %configure --disable-static \
     --disable-dependency-tracking \

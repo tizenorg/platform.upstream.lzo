@@ -1877,11 +1877,11 @@ extern "C" {
 #    define LZO_COMPILE_TIME_ASSERT(e)  {typedef int __LZO_CTA_NAME(lzo_cta_t__)[1-2*!(e)];}
 #  endif
 #endif
-LZO_COMPILE_TIME_ASSERT_HEADER(1 == 1)
+__attribute__ ((visibility ("default"))) LZO_COMPILE_TIME_ASSERT_HEADER(1 == 1)
 #if defined(__cplusplus)
-extern "C" { LZO_COMPILE_TIME_ASSERT_HEADER(2 == 2) }
+extern "C" { __attribute__ ((visibility ("default"))) LZO_COMPILE_TIME_ASSERT_HEADER(2 == 2) }
 #endif
-LZO_COMPILE_TIME_ASSERT_HEADER(3 == 3)
+__attribute__ ((visibility ("default"))) LZO_COMPILE_TIME_ASSERT_HEADER(3 == 3)
 #if (LZO_ARCH_I086 || LZO_ARCH_I386) && (LZO_OS_DOS16 || LZO_OS_DOS32 || LZO_OS_OS2 || LZO_OS_OS216 || LZO_OS_WIN16 || LZO_OS_WIN32 || LZO_OS_WIN64)
 #  if (LZO_CC_GNUC || LZO_CC_HIGHC || LZO_CC_NDPC || LZO_CC_PACIFICC)
 #  elif (LZO_CC_DMC || LZO_CC_SYMANTECC || LZO_CC_ZORTECHC)
@@ -2040,7 +2040,7 @@ LZO_COMPILE_TIME_ASSERT_HEADER(3 == 3)
 #    error "LZO_SIZEOF_SHORT"
 #  endif
 #endif
-LZO_COMPILE_TIME_ASSERT_HEADER(LZO_SIZEOF_SHORT == sizeof(short))
+__attribute__ ((visibility ("default"))) LZO_COMPILE_TIME_ASSERT_HEADER(LZO_SIZEOF_SHORT == sizeof(short))
 #if !defined(LZO_SIZEOF_INT)
 #  if (LZO_ARCH_CRAY_PVP)
 #    define LZO_SIZEOF_INT          8
@@ -2062,7 +2062,7 @@ LZO_COMPILE_TIME_ASSERT_HEADER(LZO_SIZEOF_SHORT == sizeof(short))
 #    error "LZO_SIZEOF_INT"
 #  endif
 #endif
-LZO_COMPILE_TIME_ASSERT_HEADER(LZO_SIZEOF_INT == sizeof(int))
+__attribute__ ((visibility ("default"))) LZO_COMPILE_TIME_ASSERT_HEADER(LZO_SIZEOF_INT == sizeof(int))
 #if !defined(LZO_SIZEOF_LONG)
 #  if (ULONG_MAX == LZO_0xffffffffL)
 #    define LZO_SIZEOF_LONG         4
@@ -2082,7 +2082,7 @@ LZO_COMPILE_TIME_ASSERT_HEADER(LZO_SIZEOF_INT == sizeof(int))
 #    error "LZO_SIZEOF_LONG"
 #  endif
 #endif
-LZO_COMPILE_TIME_ASSERT_HEADER(LZO_SIZEOF_LONG == sizeof(long))
+__attribute__ ((visibility ("default"))) LZO_COMPILE_TIME_ASSERT_HEADER(LZO_SIZEOF_LONG == sizeof(long))
 #if !defined(LZO_SIZEOF_LONG_LONG) && !defined(LZO_SIZEOF___INT64)
 #if (LZO_SIZEOF_LONG > 0 && LZO_SIZEOF_LONG < 8)
 #  if defined(__LONG_MAX__) && defined(__LONG_LONG_MAX__)
@@ -2252,7 +2252,7 @@ LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(long) == 8)
 #if !defined(LZO_SIZEOF_VOID_P)
 #  define LZO_SIZEOF_VOID_P         LZO_SIZEOF_LONG
 #endif
-LZO_COMPILE_TIME_ASSERT_HEADER(LZO_SIZEOF_VOID_P == sizeof(void *))
+__attribute__ ((visibility ("default"))) LZO_COMPILE_TIME_ASSERT_HEADER(LZO_SIZEOF_VOID_P == sizeof(void *))
 #if !defined(LZO_SIZEOF_SIZE_T)
 #if (LZO_ARCH_I086 || LZO_ARCH_M16C)
 #  define LZO_SIZEOF_SIZE_T         2
@@ -2655,8 +2655,8 @@ __lzo_gnuc_extension__ typedef unsigned long long lzo_ullong_t__;
 #endif
 #if defined(lzo_int16e_t)
 #  define LZO_SIZEOF_LZO_INT16E_T   2
-   LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_int16e_t) == 2)
-   LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_int16e_t) == LZO_SIZEOF_LZO_INT16E_T)
+   __attribute__ ((visibility ("default"))) LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_int16e_t) == 2)
+   __attribute__ ((visibility ("default"))) LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_int16e_t) == LZO_SIZEOF_LZO_INT16E_T)
 #endif
 #if !defined(lzo_int32e_t)
 #if (LZO_SIZEOF_LONG == 4)
@@ -2691,8 +2691,8 @@ __lzo_gnuc_extension__ typedef unsigned long long lzo_ullong_t__;
 #endif
 #if defined(lzo_int32e_t)
 #  define LZO_SIZEOF_LZO_INT32E_T   4
-   LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_int32e_t) == 4)
-   LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_int32e_t) == LZO_SIZEOF_LZO_INT32E_T)
+   __attribute__ ((visibility ("default"))) LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_int32e_t) == 4)
+   __attribute__ ((visibility ("default"))) LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_int32e_t) == LZO_SIZEOF_LZO_INT32E_T)
 #endif
 #if !defined(lzo_int64e_t)
 #if (LZO_SIZEOF___INT64 == 8)
@@ -2737,8 +2737,8 @@ __lzo_gnuc_extension__ typedef unsigned long long lzo_ullong_t__;
 #endif
 #endif
 #if defined(lzo_int64e_t)
-   LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_int64e_t) == 8)
-   LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_int64e_t) == LZO_SIZEOF_LZO_INT64E_T)
+   __attribute__ ((visibility ("default"))) LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_int64e_t) == 8)
+   __attribute__ ((visibility ("default"))) LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_int64e_t) == LZO_SIZEOF_LZO_INT64E_T)
 #endif
 #if !defined(lzo_int32l_t)
 #if defined(lzo_int32e_t)
@@ -2758,8 +2758,8 @@ __lzo_gnuc_extension__ typedef unsigned long long lzo_ullong_t__;
 #endif
 #endif
 #if 1
-   LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_int32l_t) >= 4)
-   LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_int32l_t) == LZO_SIZEOF_LZO_INT32L_T)
+   __attribute__ ((visibility ("default"))) LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_int32l_t) >= 4)
+   __attribute__ ((visibility ("default"))) LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_int32l_t) == LZO_SIZEOF_LZO_INT32L_T)
 #endif
 #if !defined(lzo_int64l_t)
 #if defined(lzo_int64e_t)
@@ -2770,8 +2770,8 @@ __lzo_gnuc_extension__ typedef unsigned long long lzo_ullong_t__;
 #endif
 #endif
 #if defined(lzo_int64l_t)
-   LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_int64l_t) >= 8)
-   LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_int64l_t) == LZO_SIZEOF_LZO_INT64L_T)
+   __attribute__ ((visibility ("default"))) LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_int64l_t) >= 8)
+   __attribute__ ((visibility ("default"))) LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_int64l_t) == LZO_SIZEOF_LZO_INT64L_T)
 #endif
 #if !defined(lzo_int32f_t)
 #if (LZO_SIZEOF_SIZE_T >= 8)
@@ -2785,8 +2785,8 @@ __lzo_gnuc_extension__ typedef unsigned long long lzo_ullong_t__;
 #endif
 #endif
 #if 1
-   LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_int32f_t) >= 4)
-   LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_int32f_t) == LZO_SIZEOF_LZO_INT32F_T)
+   __attribute__ ((visibility ("default"))) LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_int32f_t) >= 4)
+   __attribute__ ((visibility ("default"))) LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_int32f_t) == LZO_SIZEOF_LZO_INT32F_T)
 #endif
 #if !defined(lzo_int64f_t)
 #if defined(lzo_int64l_t)
@@ -2797,8 +2797,8 @@ __lzo_gnuc_extension__ typedef unsigned long long lzo_ullong_t__;
 #endif
 #endif
 #if defined(lzo_int64f_t)
-   LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_int64f_t) >= 8)
-   LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_int64f_t) == LZO_SIZEOF_LZO_INT64F_T)
+   __attribute__ ((visibility ("default"))) LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_int64f_t) >= 8)
+   __attribute__ ((visibility ("default"))) LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_int64f_t) == LZO_SIZEOF_LZO_INT64F_T)
 #endif
 #if !defined(lzo_intptr_t)
 #if 1 && (LZO_OS_OS400 && (LZO_SIZEOF_VOID_P == 16))
@@ -2835,8 +2835,8 @@ __lzo_gnuc_extension__ typedef unsigned long long lzo_ullong_t__;
 #endif
 #endif
 #if 1
-    LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_intptr_t) >= sizeof(void *))
-    LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_intptr_t) == sizeof(lzo_uintptr_t))
+    __attribute__ ((visibility ("default"))) LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_intptr_t) >= sizeof(void *))
+    __attribute__ ((visibility ("default"))) LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_intptr_t) == sizeof(lzo_uintptr_t))
 #endif
 #if !defined(lzo_word_t)
 #if defined(LZO_WORDSIZE) && (LZO_WORDSIZE+0 > 0)
@@ -2878,64 +2878,64 @@ __lzo_gnuc_extension__ typedef unsigned long long lzo_ullong_t__;
 #endif
 #endif
 #if 1 && defined(lzo_word_t)
-    LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_word_t)  == LZO_WORDSIZE)
-    LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_sword_t) == LZO_WORDSIZE)
+    __attribute__ ((visibility ("default"))) LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_word_t)  == LZO_WORDSIZE)
+    __attribute__ ((visibility ("default"))) LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_sword_t) == LZO_WORDSIZE)
 #endif
 #if 1
 #define lzo_int8_t                  signed char
 #define lzo_uint8_t                 unsigned char
 #define LZO_SIZEOF_LZO_INT8_T       1
-LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_int8_t) == 1)
-LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_int8_t) == sizeof(lzo_uint8_t))
+__attribute__ ((visibility ("default"))) LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_int8_t) == 1)
+__attribute__ ((visibility ("default"))) LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_int8_t) == sizeof(lzo_uint8_t))
 #endif
 #if defined(lzo_int16e_t)
 #define lzo_int16_t                 lzo_int16e_t
 #define lzo_uint16_t                lzo_uint16e_t
 #define LZO_SIZEOF_LZO_INT16_T      LZO_SIZEOF_LZO_INT16E_T
-LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_int16_t) == 2)
-LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_int16_t) == sizeof(lzo_uint16_t))
+__attribute__ ((visibility ("default"))) LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_int16_t) == 2)
+__attribute__ ((visibility ("default"))) LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_int16_t) == sizeof(lzo_uint16_t))
 #endif
 #if defined(lzo_int32e_t)
 #define lzo_int32_t                 lzo_int32e_t
 #define lzo_uint32_t                lzo_uint32e_t
 #define LZO_SIZEOF_LZO_INT32_T      LZO_SIZEOF_LZO_INT32E_T
-LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_int32_t) == 4)
-LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_int32_t) == sizeof(lzo_uint32_t))
+__attribute__ ((visibility ("default"))) LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_int32_t) == 4)
+__attribute__ ((visibility ("default"))) LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_int32_t) == sizeof(lzo_uint32_t))
 #endif
 #if defined(lzo_int64e_t)
 #define lzo_int64_t                 lzo_int64e_t
 #define lzo_uint64_t                lzo_uint64e_t
 #define LZO_SIZEOF_LZO_INT64_T      LZO_SIZEOF_LZO_INT64E_T
-LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_int64_t) == 8)
-LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_int64_t) == sizeof(lzo_uint64_t))
+__attribute__ ((visibility ("default"))) LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_int64_t) == 8)
+__attribute__ ((visibility ("default"))) LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_int64_t) == sizeof(lzo_uint64_t))
 #endif
 #if 1
 #define lzo_int_least32_t           lzo_int32l_t
 #define lzo_uint_least32_t          lzo_uint32l_t
 #define LZO_SIZEOF_LZO_INT_LEAST32_T LZO_SIZEOF_LZO_INT32L_T
-LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_int_least32_t) >= 4)
-LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_int_least32_t) == sizeof(lzo_uint_least32_t))
+__attribute__ ((visibility ("default"))) LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_int_least32_t) >= 4)
+__attribute__ ((visibility ("default"))) LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_int_least32_t) == sizeof(lzo_uint_least32_t))
 #endif
 #if defined(lzo_int64l_t)
 #define lzo_int_least64_t           lzo_int64l_t
 #define lzo_uint_least64_t          lzo_uint64l_t
 #define LZO_SIZEOF_LZO_INT_LEAST64_T LZO_SIZEOF_LZO_INT64L_T
-LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_int_least64_t) >= 8)
-LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_int_least64_t) == sizeof(lzo_uint_least64_t))
+__attribute__ ((visibility ("default"))) LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_int_least64_t) >= 8)
+__attribute__ ((visibility ("default"))) LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_int_least64_t) == sizeof(lzo_uint_least64_t))
 #endif
 #if 1
 #define lzo_int_fast32_t           lzo_int32f_t
 #define lzo_uint_fast32_t          lzo_uint32f_t
 #define LZO_SIZEOF_LZO_INT_FAST32_T LZO_SIZEOF_LZO_INT32F_T
-LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_int_fast32_t) >= 4)
-LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_int_fast32_t) == sizeof(lzo_uint_fast32_t))
+__attribute__ ((visibility ("default"))) LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_int_fast32_t) >= 4)
+__attribute__ ((visibility ("default"))) LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_int_fast32_t) == sizeof(lzo_uint_fast32_t))
 #endif
 #if defined(lzo_int64f_t)
 #define lzo_int_fast64_t           lzo_int64f_t
 #define lzo_uint_fast64_t          lzo_uint64f_t
 #define LZO_SIZEOF_LZO_INT_FAST64_T LZO_SIZEOF_LZO_INT64F_T
-LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_int_fast64_t) >= 8)
-LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_int_fast64_t) == sizeof(lzo_uint_fast64_t))
+__attribute__ ((visibility ("default"))) LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_int_fast64_t) >= 8)
+__attribute__ ((visibility ("default"))) LZO_COMPILE_TIME_ASSERT_HEADER(sizeof(lzo_int_fast64_t) == sizeof(lzo_uint_fast64_t))
 #endif
 #if !defined(LZO_INT16_C)
 #  if (LZO_BROKEN_INTEGRAL_CONSTANTS) && (LZO_SIZEOF_INT >= 2)
